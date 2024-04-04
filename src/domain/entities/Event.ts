@@ -1,13 +1,13 @@
 export class Event {
-  id: number;
-  name: string;
-  address: string;
-  latitude: number;
-  longitude: number;
-  date: Date;
-  country: string;
-  city: string;
-  description: string;
+  id!: number;
+  name!: string;
+  address!: string;
+  latitude!: number;
+  longitude!: number;
+  date!: Date;
+  country!: string;
+  city!: string;
+  description!: string;
 
   static create(id: number, name: string, address: string, latitude: number, longitude: number, date: Date, country: string, city: string, description: string){
     const event = new Event();
