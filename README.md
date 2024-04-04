@@ -9,7 +9,7 @@ Prueba tecnica de Coordinadora para Desarrollador Backend.
 Para ejecutar la app:
 
 -Clonar el repo con git clone https://github.com/ojrchen09cheno/WebRestaurante.git
--Instalar las dependencias dentro del proyecto con npm i o yarn
+-Instalar las dependencias dentro del proyecto con npm i
 -Crear archivo .env para las variables de entorno y agregar las siguientes:
 ```
 PORT = puertoapp
@@ -20,5 +20,5 @@ DB_NAME = nombrebd
 DB_PORT = puertobd
 ```
 - Ejecutar los tests con npm test
-- Ejecutar la app con npm start
-- Documentacion en http://localhost/3002/documentation
+- Ejecutar la app con npm run dev
+- Documentacion en http://localhost/8000/docs
