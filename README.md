@@ -4,7 +4,7 @@ Prueba técnica de Coordinadora para Desarrollador Backend Mid Marzo 2024.
 LINK_DEL_VIDEO_PLACEHOLDER
 
 Características principales:
-- Gestor de eventos con API RESTful en NodeJS con Express
+- Gestor de eventos con API RESTful en NodeJS con Express en arquitectura hexagonal
 - Operaciones CRUD para registro, login, y creación y manejo de los eventos en Postgres
 - Autenticación con JWT
 - Documentación con Swagger
