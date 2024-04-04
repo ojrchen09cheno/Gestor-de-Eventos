@@ -13,8 +13,10 @@ Características principales:
   
 Para ejecutar la app:
 
--Clonar el repo con ```
-git clone https://github.com/ojrchen09cheno/WebRestaurante.git```
+-Clonar el repo con 
+```
+git clone https://github.com/ojrchen09cheno/WebRestaurante.git
+```
 -Instalar las dependencias dentro del proyecto con npm i
 -Crear archivo .env para las variables de entorno y agregar las siguientes:
 ```
