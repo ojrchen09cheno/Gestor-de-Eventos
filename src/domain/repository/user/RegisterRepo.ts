@@ -1,5 +1,6 @@
 import { User } from "@domain/entities/User";
 
-export interface Register{
+export interface RegisterRepo{
+  findByUsername(username: string): Promise<any>;
   register(user: User): Promise<any>;
 }

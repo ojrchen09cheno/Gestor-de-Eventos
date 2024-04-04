@@ -1,13 +1,16 @@
 export class User {
-  id!: number;
-  username!: string;
-  name!: string;
+  id?: number;
+  username?: string;
+  name?: string;
+  password?: string;
+  token?: string;
 
-  static create(id: number, username: string, name: string){
+  static create(id: number, username: string, name: string, password: string){
     const user = new User();
-    user.id = id;
-    user.username = username;
-    user.name = name;
+    if(id) user.id = id;
+    if(username) user.username = username;
+    if(name) user.name = name;
+    if(password) user.password = password;
     return user;
   }
 }
