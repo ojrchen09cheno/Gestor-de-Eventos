@@ -11,7 +11,7 @@ export class GetAllEvents implements IGetAllEvents {
     try {
       const result = await this.getAllEventsRepo.getAllEvents();
       if(!result){
-        new ResponseApi(200, true, "No se han encontrado eventos", result);
+        return new ResponseApi(200, true, "No se han encontrado eventos", result);
       }
 
       let events: Event[] = [];
@@ -21,6 +21,8 @@ export class GetAllEvents implements IGetAllEvents {
         events.push(event);
       }
 
+      return new ResponseApi(200, true, "Eventos encontrados", events);
+      
       // result.array.forEach((x: { id: number; name: string; address: string; latitude: number; longitude: number; date: Date; country: string; city: string; description: string; }) => {
       //   const event = Event.create(x.id, x.name, x.address, x.latitude, x.longitude, x.date, x.country, x.city, x.description)
       // });
