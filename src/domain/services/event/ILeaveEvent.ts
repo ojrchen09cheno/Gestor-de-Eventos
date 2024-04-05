@@ -1,3 +1,3 @@
 export interface ILeaveEvent{
-  leaveEvent(data: any): Promise<any>;
+  leaveEvent(userId: number, data: any): Promise<any>;
 }

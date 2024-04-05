@@ -1,17 +1,17 @@
-import { AssistEventRepo } from "@domain/repository";
-import { IAssistEvent } from "@domain/services";
+import { AssistEventRepo } from "../../../domain/repository/event/assistEventRepo";
+import { IAssistEvent } from "../../../domain/services/event/iAssistEvent";
 import { ResponseApi } from "../responseApi";
 
 export class AssistEventApp implements IAssistEvent {
   
   constructor(private assistEventRepo: AssistEventRepo){}
-  async assistEvent(data: any): Promise<ResponseApi> {
+  async assistEvent(userId: number, data: any): Promise<ResponseApi> {
     try {
-      if(!(typeof(data.userId) == "number") || !(typeof(data.eventId) == "number") ){
+      if(!(typeof(userId) == "number") || !(typeof(data.eventId) == "number") ){
         return new ResponseApi(200, false, "Usuario o evento invalido", data);
       }
 
-      await this.assistEventRepo.assistEvent(data.userId, data.eventId);
+      await this.assistEventRepo.assistEvent(userId, data.eventId);
       return new ResponseApi(201, true, "Asistiendo al evento", data);
 
     } catch (error: any) {

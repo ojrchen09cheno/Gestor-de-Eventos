@@ -1,18 +1,18 @@
-import { ILeaveEvent } from "@domain/services";
-import { LeaveEventRepo } from "@domain/repository";
+import { ILeaveEvent } from "../../../domain/services";
+import { LeaveEventRepo } from "../../../domain/repository";
 import { ResponseApi } from "../responseApi";
 
 export class LeaveEventApp implements ILeaveEvent {
 
   constructor(private leaveEventRepo: LeaveEventRepo){};
 
-  async leaveEvent(data: any): Promise<ResponseApi> {
+  async leaveEvent(userId: number, data: any): Promise<ResponseApi> {
       try {
-        if(!(typeof(data.userId) == "number") || !(typeof(data.eventId) == "number")){
+        if(!(typeof(userId) == "number") || !(typeof(data.eventId) == "number")){
           return new ResponseApi(200, false, "Usuario o evento invalido", data);
         }
 
-        await this.leaveEventRepo.leaveEvent(data.userId, data.eventId);
+        await this.leaveEventRepo.leaveEvent(userId, data.eventId);
         return new ResponseApi(200, true, "Dejando de asistir el evento", data);
 
       } catch (error:any) {

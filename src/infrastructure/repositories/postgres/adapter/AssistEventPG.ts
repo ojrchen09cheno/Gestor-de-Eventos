@@ -1,4 +1,4 @@
-import { AssistEventRepo } from "@domain/repository";
+import { AssistEventRepo } from "../../../../domain/repository/event/assistEventRepo";
 import { pool } from "../postgres";
 export class AssistEventPG implements AssistEventRepo{
 
@@ -9,6 +9,6 @@ export class AssistEventPG implements AssistEventRepo{
       [userId, eventId]
       );
     
-    return result;
+    return result.rows;
   }
 }

@@ -1,4 +1,4 @@
-import { LoginRepo } from "@domain/repository";
+import { LoginRepo } from "../../../../domain/repository";
 import { pool } from "../postgres";
 export class LoginPG implements LoginRepo{
 
@@ -9,6 +9,6 @@ export class LoginPG implements LoginRepo{
       [username]
       );
     
-    return result;
+    return result.rows;
   }
 }

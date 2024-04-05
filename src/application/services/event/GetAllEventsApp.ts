@@ -1,7 +1,7 @@
-import { IGetAllEvents } from "@domain/services";
-import { GetAllEventsRepo } from "@domain/repository";
+import { IGetAllEvents } from "../../../domain/services";
+import { GetAllEventsRepo } from "../../../domain/repository";
 import { ResponseApi } from "../responseApi";
-import { Event } from "@domain/entities";
+import { Event } from "../../../domain/entities";
 
 export class GetAllEventsApp implements IGetAllEvents {
 

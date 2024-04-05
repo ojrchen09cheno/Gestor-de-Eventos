@@ -1,6 +1,6 @@
-import { CreateEventRepo } from "@domain/repository";
+import { CreateEventRepo } from "../../../../domain/repository";
 import { pool } from "../postgres";
-import { Event } from "@domain/entities";
+import { Event } from "../../../../domain/entities";
 export class CreateEventPG implements CreateEventRepo{
 
     constructor() {}
@@ -14,6 +14,6 @@ export class CreateEventPG implements CreateEventRepo{
         event.date, event.country, event.city, event.description]
       );
     
-    return result;
+    return result.rows;
   }
 }

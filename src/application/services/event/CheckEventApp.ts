@@ -1,5 +1,5 @@
-import { ICheckEvent } from "@domain/services";
-import { CheckEventRepo } from "@domain/repository";
+import { ICheckEvent } from "../../../domain/services";
+import { CheckEventRepo } from "../../../domain/repository";
 import { ResponseApi } from "../responseApi";
 
 export class CheckEventApp implements ICheckEvent {

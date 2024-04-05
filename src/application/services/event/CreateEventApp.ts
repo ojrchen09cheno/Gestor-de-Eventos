@@ -1,7 +1,7 @@
-import { ICreateEvent } from "@domain/services";
-import { CreateEventRepo } from "@domain/repository";
+import { ICreateEvent } from "../../../domain/services";
+import { CreateEventRepo } from "../../../domain/repository";
 import { ResponseApi } from "../responseApi";
-import { Event } from "@domain/entities";
+import { Event } from "../../../domain/entities";
 
 export class CreateEventApp implements ICreateEvent {
   constructor(private createEventRepo: CreateEventRepo) {}

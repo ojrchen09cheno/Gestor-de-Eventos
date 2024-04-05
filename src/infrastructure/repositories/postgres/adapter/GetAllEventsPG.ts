@@ -1,4 +1,4 @@
-import { GetAllEventsRepo } from "@domain/repository";
+import { GetAllEventsRepo } from "../../../../domain/repository";
 import { pool } from "../postgres";
 export class GetAllEventsPG implements GetAllEventsRepo{
 
@@ -6,6 +6,6 @@ export class GetAllEventsPG implements GetAllEventsRepo{
   async getAllEvents(): Promise<any> {
     const result = await pool.query(`SELECT * FROM event`);
     
-    return result;
+    return result.rows;
   }
 }

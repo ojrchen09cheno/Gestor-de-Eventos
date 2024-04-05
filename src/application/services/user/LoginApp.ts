@@ -1,15 +1,15 @@
-import { ILogin } from "@domain/services/user/iLogin";
-import { LoginRepo } from "@domain/repository/user/loginRepo";
+import { ILogin } from "../../../domain/services/user/iLogin";
+import { LoginRepo } from "../../../domain/repository/user/loginRepo";
 import bcrypt from "bcryptjs";
-import { config } from "@config/config";
+import { config } from "../../../config/config";
 import jwt from "jsonwebtoken";
 import { ResponseApi } from "../responseApi";
-import { User } from "@domain/entities";
+import { User } from "../../../domain/entities";
 
 export class LoginApp implements ILogin {
   constructor(private loginRepo: LoginRepo) {}
 
-  async login(user: any): Promise<ResponseApi> {
+  async login(user: any): Promise<any> {
     try {
       
       if (!user.username || !user.password) {

@@ -1,5 +1,5 @@
-import { RegisterRepo } from "@domain/repository/user/registerRepo";
-import { IRegister } from "@domain/services";
+import { RegisterRepo } from "../../../domain/repository/user/registerRepo";
+import { IRegister } from "../../../domain/services";
 import bcrypt from "bcryptjs";
 import { ResponseApi } from "../responseApi";
 
@@ -12,7 +12,7 @@ export class RegisterApp implements IRegister {
         return new ResponseApi(200,false,"El usuario o la contraseña estan vacios",user
         );
       }
-
+      
       if (await this.registerRepo.findByUsername(user.username)) {
         delete user.password;
         return new ResponseApi(200, false, "El usuario ya existe", user);

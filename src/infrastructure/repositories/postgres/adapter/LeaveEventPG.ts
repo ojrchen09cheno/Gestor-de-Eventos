@@ -1,4 +1,4 @@
-import { LeaveEventRepo } from "@domain/repository";
+import { LeaveEventRepo } from "../../../../domain/repository";
 import { pool } from "../postgres";
 export class LeaveEventPG implements LeaveEventRepo{
 
@@ -10,6 +10,6 @@ export class LeaveEventPG implements LeaveEventRepo{
       [userId, eventId]
       );
     
-    return result;
+    return result.rows;
   }
 }

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import {Request, Response} from 'express'
-import { config } from '@config/config'
+import { config } from '../../../config/config'
 
 export function auth(req: Request, res: Response, next: any) {
   const header = req.headers["cookie"];

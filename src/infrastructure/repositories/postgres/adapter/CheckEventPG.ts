@@ -1,4 +1,4 @@
-import { CheckEventRepo } from "@domain/repository";
+import { CheckEventRepo } from "../../../../domain/repository";
 import { pool } from "../postgres";
 export class CheckEventPG implements CheckEventRepo{
 
@@ -9,6 +9,6 @@ export class CheckEventPG implements CheckEventRepo{
       [eventId]
       );
     
-    return result;
+    return result.rows;
   }
 }

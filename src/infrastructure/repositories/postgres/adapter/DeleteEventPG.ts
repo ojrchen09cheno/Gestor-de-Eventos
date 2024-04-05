@@ -1,4 +1,4 @@
-import { DeleteEventRepo } from "@domain/repository";
+import { DeleteEventRepo } from "../../../../domain/repository";
 import { pool } from "../postgres";
 export class DeleteEventPG implements DeleteEventRepo{
 
@@ -9,6 +9,6 @@ export class DeleteEventPG implements DeleteEventRepo{
       [eventId]
       );
     
-    return result;
+    return result.rows;
   }
 }
