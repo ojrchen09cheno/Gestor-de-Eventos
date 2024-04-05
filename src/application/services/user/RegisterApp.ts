@@ -18,11 +18,15 @@ export class RegisterApp implements IRegister {
         return new ResponseApi(200, false, "El usuario ya existe", user);
       };
 
-      const encrypt = bcrypt.hashSync(user.password, 10);
+      const saltRounds = 10;
+      const salt = bcrypt.genSaltSync(saltRounds);
+      const encrypt = bcrypt.hashSync(user.password, salt);
       user.password = encrypt;
+
       await this.registerRepo.register(user);
       delete user.password;
       return new ResponseApi(201, true, "Registro exitoso", user);
+
     } catch (error: any) {
       return new ResponseApi(500,false,"Error interno del servidor",error.message);
     }

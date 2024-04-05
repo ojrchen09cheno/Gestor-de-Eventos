@@ -23,8 +23,7 @@ export class LoginApp implements ILogin {
         return new ResponseApi(200, false, "Usuario o contraseña incorrectos", user);
       }
 
-      const encrypt = bcrypt.hashSync(user.password, 10);
-      if (bcrypt.compareSync(encrypt, userDB.password)) {
+      if (bcrypt.compareSync(user.password, userDB.password)) {
 
         let token = jwt.sign(
           {

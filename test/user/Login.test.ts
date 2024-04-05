@@ -1,8 +1,6 @@
 import { LoginApp } from '@application/services/user/LoginApp'
 import bcrypt from 'bcryptjs'
 
-import { error } from "console";
-
 describe("Test de login", () => {
   it("Deberia hacer login si el usuario existe y dar token JSON", async () => {
     const dataMock = {
@@ -20,8 +18,6 @@ describe("Test de login", () => {
     const result = await loginTest.login(data);
     const hasPass = "password" in result.data;
 
-    error(result);
-    
     expect(result.success).toEqual(true);
     expect(result.data).toHaveProperty('token');
     expect(hasPass).toEqual(false);
