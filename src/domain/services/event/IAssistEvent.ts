@@ -1,3 +1,3 @@
 export interface IAssistEvent {
-  assisstEvent(data: any): Promise<any>;
+  assistEvent(data: any): Promise<any>;
 }

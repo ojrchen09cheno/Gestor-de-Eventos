@@ -19,7 +19,9 @@ const config = {
   },
   moduleNameMapper: {
     '@application/(.*)': '<rootDir>/src/application/$1',
-  }
+  },
+  verbose: false,
+  silent: false,
 }
 
 module.exports = config;

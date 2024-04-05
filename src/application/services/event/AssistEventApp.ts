@@ -2,12 +2,12 @@ import { AssistEventRepo } from "@domain/repository";
 import { IAssistEvent } from "@domain/services";
 import { ResponseApi } from "../ResponseApi";
 
-export class AssisstEventApp implements IAssistEvent {
+export class AssistEventApp implements IAssistEvent {
   
   constructor(private assistEventRepo: AssistEventRepo){}
-  async assisstEvent(data: any): Promise<ResponseApi> {
+  async assistEvent(data: any): Promise<ResponseApi> {
     try {
-      if(isNaN(data.userId) || isNaN(data.eventId)){
+      if(!(typeof(data.userId) == "number") || !(typeof(data.eventId) == "number") ){
         return new ResponseApi(200, false, "Usuario o evento invalido", data);
       }
 
