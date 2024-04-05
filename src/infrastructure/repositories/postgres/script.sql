@@ -30,13 +30,13 @@ CREATE TABLE public."user_event" (
 	CONSTRAINT assistant_event_fk FOREIGN KEY (event_id) REFERENCES public."event"(id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-INSERT INTO "users"  (id, username, password, name) VALUES (0, 'user1', 'pass', 'Santiago');
-INSERT INTO "users" (id, username, password, name) VALUES (1, 'user2', 'pass2', 'Daniel');
-INSERT INTO "users" (id, username, password, name) VALUES (2, 'user3', 'pass3', 'Maria');
+INSERT INTO "users"  (username, password, name) VALUES ('user1', 'pass', 'Santiago');
+INSERT INTO "users" (username, password, name) VALUES ('user2', 'pass2', 'Daniel');
+INSERT INTO "users" (username, password, name) VALUES ('user3', 'pass3', 'Maria');
 
-INSERT INTO "event" (id, name, address, date, country, city) VALUES (0, 'Partido de futbol', 'Cra. 74 #48-10', '2024-04-05', 'Colombia', 'Medellin');
-INSERT INTO "event" (id, name, address, date, country, city) VALUES (1, 'Concierto', 'Cl. 35 #80a-02', '2024-04-06', 'Colombia', 'Medellin');
-INSERT INTO "event" (id, name, address, date, country, city) VALUES (2, 'Feria', 'Cra. 84 #45d-24', '2024-04-05', 'Colombia', 'Medellin');
+INSERT INTO "event" (name, address, date, country, city) VALUES ('Partido de futbol', 'Cra. 74 #48-10', '2024-04-05', 'Colombia', 'Medellin');
+INSERT INTO "event" (name, address, date, country, city) VALUES ('Concierto', 'Cl. 35 #80a-02', '2024-04-06', 'Colombia', 'Medellin');
+INSERT INTO "event" (name, address, date, country, city) VALUES ('Feria', 'Cra. 84 #45d-24', '2024-04-05', 'Colombia', 'Medellin');
 
 INSERT INTO "user_event" (user_id, event_id) VALUES (0,0);
 INSERT INTO "user_event" (user_id, event_id) VALUES (0,1);
