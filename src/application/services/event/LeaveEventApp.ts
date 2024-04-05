@@ -8,7 +8,7 @@ export class LeaveEventApp implements ILeaveEvent {
 
   async leaveEvent(data: any): Promise<ResponseApi> {
       try {
-        if(isNaN(data.userId) || isNaN(data.eventId)){
+        if(!(typeof(data.userId) == "number") || !(typeof(data.eventId) == "number")){
           return new ResponseApi(200, false, "Usuario o evento invalido", data);
         }
 
