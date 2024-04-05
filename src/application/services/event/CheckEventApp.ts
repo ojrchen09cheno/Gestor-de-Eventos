@@ -13,7 +13,7 @@ export class CheckEventApp implements ICheckEvent {
 
       const result = await this.checkEventRepo.checkEvent(eventId);
 
-      if(result){
+      if(result.length){
         return new ResponseApi(200, true, "Evento encontrado", result);
       }
       

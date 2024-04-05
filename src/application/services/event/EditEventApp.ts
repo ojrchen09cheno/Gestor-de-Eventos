@@ -7,16 +7,18 @@ export class EditEventApp implements IEditEvent {
 
   constructor(private editEventRepo: EditEventRepo){};
 
-  async editEvent(data:any): Promise<ResponseApi> {
+  async editEvent(eventId: number, data:any): Promise<ResponseApi> {
     try {
-      if(!(typeof(data.eventId) == "number")){
+      // Redundante, el id siempre sera un param.number del URL
+      if(!(typeof(eventId) == "number")){
         return new ResponseApi(200, false, "Evento invalido", data);
       }
-      if(!data.updateEvent){
+      //
+      if(!data){
         return new ResponseApi(200, false, "Datos para actualizar invalidos", data);
       }
       
-      const result = await this.editEventRepo.editEvent(data.eventId, data.updateEvent);
+      const result = await this.editEventRepo.editEvent(eventId, data);
       return new ResponseApi(200, true, "Evento actualizado", result);
 
     } catch (error:any) {

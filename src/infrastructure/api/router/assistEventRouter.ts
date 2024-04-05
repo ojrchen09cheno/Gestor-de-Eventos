@@ -8,8 +8,9 @@ export const assistEvent = async (req: Request, res: Response) => {
   const token = header!.split("=")[1];
   const decoded: any = jwt.verify(token, config.SECRET as string);
   const userId = decoded.id;
-  const params = req.params;
-  const response = await assistEventD.assistEvent(userId, params);
+  const eventId = parseInt(req.params.eventId);
+  const data = { userId, eventId}
+  const response = await assistEventD.assistEvent(data);
   res.json(response);
 };
 /**

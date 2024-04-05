@@ -16,19 +16,23 @@ export class LoginApp implements ILogin {
         return new ResponseApi(200, false, "El usuario o la contraseña estan vacios", user);
       }
 
-      const userDB = await this.loginRepo.findByUser(user.username);
+      let userDB = await this.loginRepo.findByUser(user.username);
 
-      if (!userDB) {
+      // Si no encuentra usuario, retorna lista vacia
+      if (!await userDB.length) {
         delete user.password
         return new ResponseApi(200, false, "Usuario o contraseña incorrectos", user);
       }
+
+      userDB = userDB[0]
 
       if (bcrypt.compareSync(user.password, userDB.password)) {
 
         let token = jwt.sign(
           {
-            user: user.username,
-            id: user.id,
+            name: userDB.name,
+            username: userDB.username,
+            id: userDB.id,
           },
           config.SECRET!,
           {

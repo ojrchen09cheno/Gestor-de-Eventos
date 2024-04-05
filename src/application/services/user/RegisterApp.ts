@@ -7,13 +7,13 @@ export class RegisterApp implements IRegister {
   constructor(private registerRepo: RegisterRepo) {}
   async register(user: any): Promise<ResponseApi> {
     try {
-      if (!user.username || !user.password) {
+      if (!user.username || !user.password || !user.name) {
         delete user.password;
-        return new ResponseApi(200,false,"El usuario o la contraseña estan vacios",user
+        return new ResponseApi(200,false,"Usuario, contraseña, o nombre vacios",user
         );
       }
       
-      if (await this.registerRepo.findByUsername(user.username)) {
+      if ((await this.registerRepo.findByUsername(user.username)).length) {
         delete user.password;
         return new ResponseApi(200, false, "El usuario ya existe", user);
       };

@@ -5,17 +5,19 @@ import { ResponseApi } from "../responseApi";
 export class DeleteEventApp implements IDeleteEvent {
 
   constructor(private deleteEventRepo: DeleteEventRepo){}
-  async deleteEvent(data: any): Promise<ResponseApi> {
+  async deleteEvent(eventId: number): Promise<ResponseApi> {
     try {
-      if(!(typeof(data.eventId) == "number")){
-        return new ResponseApi(200, false, "Evento invalido", data.eventId);
+
+      // redundante
+      if(!(typeof(eventId) == "number")){
+        return new ResponseApi(200, false, "Evento invalido", eventId);
       }
 
-      const result = await this.deleteEventRepo.deleteEvent(data.eventId);
-      if(result){
-        return new ResponseApi(200, true, "Evento eliminado", data.eventId);
+      const result = await this.deleteEventRepo.deleteEvent(eventId);
+      if(result.length){
+        return new ResponseApi(200, true, "Evento eliminado", result);
       }
-      return new ResponseApi(200, false, "El evento no existe", data.eventId);
+      return new ResponseApi(200, false, "El evento no existe", eventId);
     } catch (error:any ) {
       return new ResponseApi(500, false, "Error interno del servidor", error.message);
     }

@@ -8,8 +8,9 @@ router
   .get("/eventos", routes.getAllEvents)
   .get("/eventos/:eventId", routes.checkEvent)
   .post("/eventos", auth, routes.createEvent)
-  .post("/eventos/asistir/:eventId", auth, routes.assistEvent)
-  .post("/eventos/dejar/:eventId", auth, routes.leaveEvent)
+  .put("/eventos/:eventId", auth, routes.editEvent)
+  .get("/eventos/asistir/:eventId", auth, routes.assistEvent)
+  .delete("/eventos/dejar/:eventId", auth, routes.leaveEvent)
   // Rol admin y auth admin?
   .delete("/eventos/:eventId", auth, routes.deleteEvent)
 

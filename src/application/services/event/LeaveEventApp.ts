@@ -6,13 +6,18 @@ export class LeaveEventApp implements ILeaveEvent {
 
   constructor(private leaveEventRepo: LeaveEventRepo){};
 
-  async leaveEvent(userId: number, data: any): Promise<ResponseApi> {
+  async leaveEvent(data: any): Promise<ResponseApi> {
       try {
-        if(!(typeof(userId) == "number") || !(typeof(data.eventId) == "number")){
+
+        if(!(typeof(data.userId) == "number") || !(typeof(data.eventId) == "number")){
           return new ResponseApi(200, false, "Usuario o evento invalido", data);
         }
 
-        await this.leaveEventRepo.leaveEvent(userId, data.eventId);
+        // No deberia de dar error de usuario/evento inexistente
+        // Porque haria la solicitud con token del usuario y desde la pagina
+        // del evento
+        
+        await this.leaveEventRepo.leaveEvent(data.userId, data.eventId);
         return new ResponseApi(200, true, "Dejando de asistir el evento", data);
 
       } catch (error:any) {

@@ -5,7 +5,7 @@ export class DeleteEventPG implements DeleteEventRepo{
     constructor() {}
   async deleteEvent(eventId: number): Promise<any> {
     const result = await pool.query(
-      `DELETE FROM event WHERE event_id = $1 RETURNING *`, 
+      `DELETE FROM event WHERE id = $1 RETURNING *`, 
       [eventId]
       );
     
