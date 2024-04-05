@@ -26,6 +26,8 @@ DB_HOST = hostbd
 DB_PASSWORD = contrasenabd
 DB_NAME = nombrebd
 DB_PORT = puertobd
+TOKEN_EXPIRE = tiempodetoken
+SECRET = secreto
 ```
 - Ejecutar los tests con npm test
 - Ejecutar la app con npm run dev
