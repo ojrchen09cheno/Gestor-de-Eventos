@@ -1,4 +1,4 @@
-import { CreateEventApp } from "@application/services/event/CreateEventApp";
+import { CreateEventApp } from "@application/services/event/createEventApp";
 
 describe("Tests para creacion de eventos", () => {
   it("Deberia de ser exitoso si el evento es valido", async () => {

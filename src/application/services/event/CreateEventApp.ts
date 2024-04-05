@@ -1,6 +1,6 @@
 import { ICreateEvent } from "@domain/services";
 import { CreateEventRepo } from "@domain/repository";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 import { Event } from "@domain/entities";
 
 export class CreateEventApp implements ICreateEvent {

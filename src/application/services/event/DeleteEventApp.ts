@@ -1,6 +1,6 @@
 import { IDeleteEvent } from "@domain/services";
 import { DeleteEventRepo } from "@domain/repository";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 
 export class DeleteEventApp implements IDeleteEvent {
 

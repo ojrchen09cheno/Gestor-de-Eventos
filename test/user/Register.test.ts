@@ -1,4 +1,4 @@
-import { RegisterApp } from "@application/services/user/RegisterApp";
+import { RegisterApp } from "@application/services/user/registerApp";
 
 describe("Test para registro de usuario", () => {
   it("Deberia crear un usuario si no existe", async () => {

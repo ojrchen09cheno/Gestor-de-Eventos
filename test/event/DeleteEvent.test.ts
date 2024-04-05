@@ -1,4 +1,4 @@
-import { DeleteEventApp } from "@application/services/event/DeleteEventApp";
+import { DeleteEventApp } from "@application/services/event/deleteEventApp";
 
 describe("Tests para eliminar eventos", () => {
   it("Deberia eliminar un emento si el eventId es valido", async () => {

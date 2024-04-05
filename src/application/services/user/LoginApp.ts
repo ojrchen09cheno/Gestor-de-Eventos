@@ -1,9 +1,9 @@
-import { ILogin } from "@domain/services/user/ILogin";
-import { LoginRepo } from "@domain/repository/user/LoginRepo";
+import { ILogin } from "@domain/services/user/iLogin";
+import { LoginRepo } from "@domain/repository/user/loginRepo";
 import bcrypt from "bcryptjs";
 import { config } from "@config/config";
 import jwt from "jsonwebtoken";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 import { User } from "@domain/entities";
 
 export class LoginApp implements ILogin {

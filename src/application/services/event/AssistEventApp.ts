@@ -1,6 +1,6 @@
 import { AssistEventRepo } from "@domain/repository";
 import { IAssistEvent } from "@domain/services";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 
 export class AssistEventApp implements IAssistEvent {
   

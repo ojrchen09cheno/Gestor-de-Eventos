@@ -1,4 +1,4 @@
-import { LoginApp } from '@application/services/user/LoginApp'
+import { LoginApp } from '@application/services/user/loginApp'
 import bcrypt from 'bcryptjs'
 
 describe("Test de login", () => {

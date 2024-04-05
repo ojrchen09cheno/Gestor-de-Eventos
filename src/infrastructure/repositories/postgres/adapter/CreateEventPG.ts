@@ -6,8 +6,12 @@ export class CreateEventPG implements CreateEventRepo{
     constructor() {}
   async createEvent(event: Event): Promise<any> {
     const result = await pool.query(
-      `INSERT INTO user_event(user_id, event_id) VALUES ($1, $2) RETURNING *`, 
-      [userId, eventId]
+      `INSERT INTO event(name, address, latitude, longitude, date, country, city, description) 
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8) 
+      RETURNING *`, 
+      //@ts-ignore
+      [event.name, event.address, event.latitude, event.longitude, 
+        event.date, event.country, event.city, event.description]
       );
     
     return result;

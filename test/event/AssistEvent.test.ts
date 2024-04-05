@@ -1,4 +1,4 @@
-import { AssistEventApp } from "@application/services/event/AssistEventApp";
+import { AssistEventApp } from "@application/services/event/assistEventApp";
 
 describe("Tests para servicio de asistir a eventos", () => {
   it("Deberia ser exitoso si se dan un usuario y evento valido", async () => {

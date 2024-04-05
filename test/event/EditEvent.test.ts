@@ -1,4 +1,4 @@
-import { EditEventApp } from "@application/services/event/EditEventApp";
+import { EditEventApp } from "@application/services/event/editEventApp";
 
 describe("Tests para editar eventos", () => {
   it("Deberia editar un evento si los datos son validos", async () => {

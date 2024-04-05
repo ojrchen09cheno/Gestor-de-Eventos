@@ -1,4 +1,4 @@
-import { GetAllEventsApp } from "@application/services/event/GetAllEventsApp";
+import { GetAllEventsApp } from "@application/services/event/getAllEventsApp";
 
 describe("Tests para ver todos los eventos", () => {
   it("Deberia de traer todos los eventos si hay", async () => {

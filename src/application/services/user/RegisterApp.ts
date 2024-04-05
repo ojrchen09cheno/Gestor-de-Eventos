@@ -1,7 +1,7 @@
-import { RegisterRepo } from "@domain/repository/user/RegisterRepo";
+import { RegisterRepo } from "@domain/repository/user/registerRepo";
 import { IRegister } from "@domain/services";
 import bcrypt from "bcryptjs";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 
 export class RegisterApp implements IRegister {
   constructor(private registerRepo: RegisterRepo) {}

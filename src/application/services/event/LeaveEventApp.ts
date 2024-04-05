@@ -1,6 +1,6 @@
 import { ILeaveEvent } from "@domain/services";
 import { LeaveEventRepo } from "@domain/repository";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 
 export class LeaveEventApp implements ILeaveEvent {
 

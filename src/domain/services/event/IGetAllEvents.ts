@@ -1,5 +1,5 @@
-import { ResponseApi } from "@application/services/ResponseApi";
-import { Event } from "@domain/entities/Event";
+import { ResponseApi } from "@application/services/responseApi";
+import { Event } from "@domain/entities/event";
 
 export interface IGetAllEvents{
   getAllEvents(): Promise<ResponseApi>

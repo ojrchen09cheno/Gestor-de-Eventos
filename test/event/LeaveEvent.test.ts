@@ -1,4 +1,4 @@
-import { LeaveEventApp } from "@application/services/event/LeaveEventApp";
+import { LeaveEventApp } from "@application/services/event/leaveEventApp";
 
 describe("Tests para dejar de asistir a eventos", () => {
   it("Deberia de eliminar la asistencia si el userId y eventId son validos", async () => {

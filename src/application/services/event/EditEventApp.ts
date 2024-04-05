@@ -1,6 +1,6 @@
 import { IEditEvent } from "@domain/services";
 import { EditEventRepo } from "@domain/repository";
-import { ResponseApi } from "../ResponseApi";
+import { ResponseApi } from "../responseApi";
 import { Event } from "@domain/entities";
 
 export class EditEventApp implements IEditEvent {

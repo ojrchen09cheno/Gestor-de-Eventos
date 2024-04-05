@@ -1,2 +1,2 @@
-export * from './Event';
-export * from './User';
+export * from './event';
+export * from './user';

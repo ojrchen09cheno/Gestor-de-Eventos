@@ -1,4 +1,4 @@
-import { CheckEventApp } from "@application/services/event/CheckEventApp";
+import { CheckEventApp } from "@application/services/event/checkEventApp";
 
 describe("Tests para servicio de mirar 1 evento", () => {
   it("Deberia de retornar un evento si es valido", async () => {
