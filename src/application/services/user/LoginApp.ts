@@ -9,7 +9,7 @@ import { User } from "@domain/entities";
 export class LoginApp implements ILogin {
   constructor(private loginRepo: LoginRepo) {}
 
-  async login(user: User): Promise<ResponseApi> {
+  async login(user: any): Promise<ResponseApi> {
     try {
       
       if (!user.username || !user.password) {
@@ -18,11 +18,13 @@ export class LoginApp implements ILogin {
 
       const userDB = await this.loginRepo.findByUser(user.username);
 
-      if (!user.username) {
+      if (!userDB) {
+        delete user.password
         return new ResponseApi(200, false, "Usuario o contraseña incorrectos", user);
       }
 
-      if (bcrypt.compareSync(user.password, userDB.password)) {
+      const encrypt = bcrypt.hashSync(user.password, 10);
+      if (bcrypt.compareSync(encrypt, userDB.password)) {
 
         let token = jwt.sign(
           {

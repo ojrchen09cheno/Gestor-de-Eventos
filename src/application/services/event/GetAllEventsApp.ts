@@ -3,7 +3,7 @@ import { GetAllEventsRepo } from "@domain/repository";
 import { ResponseApi } from "../ResponseApi";
 import { Event } from "@domain/entities";
 
-export class GetAllEvents implements IGetAllEvents {
+export class GetAllEventsApp implements IGetAllEvents {
 
   constructor(private getAllEventsRepo: GetAllEventsRepo){};
 
@@ -14,14 +14,14 @@ export class GetAllEvents implements IGetAllEvents {
         return new ResponseApi(200, true, "No se han encontrado eventos", result);
       }
 
-      let events: Event[] = [];
-      for(let i=0; i<result.length; i++){
-        const x = result[i];
-        const event = Event.create(x.id, x.name, x.address, x.latitude, x.longitude, x.date, x.country, x.city, x.description)
-        events.push(event);
-      }
+      // let events: Event[] = [];
+      // for(let i=0; i<result.length; i++){
+      //   const x = result[i];
+      //   const event = Event.create(x.id, x.name, x.address, x.latitude, x.longitude, x.date, x.country, x.city, x.description)
+      //   events.push(event);
+      // }
 
-      return new ResponseApi(200, true, "Eventos encontrados", events);
+      return new ResponseApi(200, true, "Eventos encontrados", result);
       
       // result.array.forEach((x: { id: number; name: string; address: string; latitude: number; longitude: number; date: Date; country: string; city: string; description: string; }) => {
       //   const event = Event.create(x.id, x.name, x.address, x.latitude, x.longitude, x.date, x.country, x.city, x.description)

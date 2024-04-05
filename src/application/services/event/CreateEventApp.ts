@@ -14,10 +14,7 @@ export class CreateEventApp implements ICreateEvent {
       }
       const event = Event.create(data.id, data.name, data.address, data.latitude, data.longitude, data.date, data.country, data.city, data.description);
       const result = await this.createEventRepo.createEvent(event);
-      if (result) {
-        return new ResponseApi(201, true, "Evento creado", event);
-      }
-      return new ResponseApi(200, false, "Error creando evento", event);
+        return new ResponseApi(201, true, "Evento creado", data);
 
     } catch (error: any) {
       return new ResponseApi(500, false, "Error interno del servidor", data);

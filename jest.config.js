@@ -19,6 +19,8 @@ const config = {
   },
   moduleNameMapper: {
     '@application/(.*)': '<rootDir>/src/application/$1',
+    '@domain/(.*)': '<rootDir>/src/domain/$1',
+    '@config/(.*)': '<rootDir>/src/config/$1',
   },
   verbose: false,
   silent: false,
