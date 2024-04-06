@@ -15,6 +15,6 @@ export const uploadEvents = async (req: Request, res: Response) => {
       res.json(error.message)
     }
     const response = await uploadEventD.uploadEvents(result);
-    res.json(new ResponseApi(200, true, "Eventos creados", response))
+    res.json(response)
   })
 }
