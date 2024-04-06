@@ -7,3 +7,4 @@ export * from './event/getAllEventsRepo';
 export * from './event/leaveEventRepo';
 export * from './user/loginRepo';
 export * from './user/registerRepo';
+export * from './event/assistCountRepo'

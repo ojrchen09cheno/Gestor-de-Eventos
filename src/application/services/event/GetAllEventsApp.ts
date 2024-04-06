@@ -10,7 +10,7 @@ export class GetAllEventsApp implements IGetAllEvents {
   async getAllEvents(): Promise<ResponseApi> {
     try {
       const result = await this.getAllEventsRepo.getAllEvents();
-      if(result.length){
+      if(!result.length){
         return new ResponseApi(200, true, "No se han encontrado eventos", result);
       }
 

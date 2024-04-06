@@ -7,3 +7,4 @@ export * from './event/iGetAllEvents';
 export * from './event/iLeaveEvent';
 export * from './user/iLogin';
 export * from './user/iRegister';
+export * from './event/iAssistCount';

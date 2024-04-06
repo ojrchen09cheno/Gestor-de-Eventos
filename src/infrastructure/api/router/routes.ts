@@ -7,6 +7,7 @@ export const router = express.Router();
 
 router
   .get("/eventos", routes.getAllEvents)
+  .get("/eventos/asistencia", routes.assistCount)
   .get("/eventos/:eventId", routes.checkEvent)
   .post("/eventos", auth, routes.createEvent)
   .post("/eventos/upload", auth, upload.single('file'), routes.uploadEvents)

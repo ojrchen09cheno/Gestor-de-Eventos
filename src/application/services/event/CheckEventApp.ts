@@ -20,6 +20,7 @@ export class CheckEventApp implements ICheckEvent {
       return new ResponseApi(200, false, "Evento no encontrado", result);
 
     } catch (error:any) {
+      console.log(1)
       return new ResponseApi(500, false, "Error interno del servidor", error.message);
     }
   }

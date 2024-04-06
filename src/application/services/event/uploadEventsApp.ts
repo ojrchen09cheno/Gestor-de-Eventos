@@ -14,7 +14,7 @@ export class UploadEventsApp implements IUploadEvents {
         const element = data[i];
         const event = Event.create(element.id, element.name, element.address, element.latitude, element.longitude, element.date, element.country, element.city, element.description);
         const result = await this.createEventRepo.createEvent(event);
-        results.push(result);
+        results.push(result[0]);
       }
       return new ResponseApi(201, true, "Eventos creados", results);
     } catch (error: any) {
