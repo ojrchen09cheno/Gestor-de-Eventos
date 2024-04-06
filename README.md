@@ -1,7 +1,7 @@
 # PruebaCoordinadoraBackend
 Prueba técnica de Coordinadora para Desarrollador Backend Mid Marzo 2024. 
 
-LINK_DEL_VIDEO_PLACEHOLDER
+https://drive.google.com/file/d/1OkKr8GhL97fIfwcpcIafZvBsXwDu2urg/view?usp=sharing
 
 Características principales:
 - Gestor de eventos con API RESTful en NodeJS con Express en arquitectura hexagonal
