@@ -14,12 +14,13 @@ export class AssistCountApp implements IAssistCount {
       for(let i = 0; i < result.length; i++){
         const element: any = result[i];
         const date = element.date.toString()
+        const count = parseInt(element.count)
         if(map.get(date)){
           const temp = map.get(date)
-          map.set(date, temp + element.count)
+          map.set(date, temp + count)
         }
         else {
-          map.set(date, element.count)
+          map.set(date, count)
         }
       }
 

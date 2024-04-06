@@ -6,10 +6,10 @@ export class AssistCountPG implements AssistCountRepo{
 
   async assistCount(): Promise<any> {
     const result = await pool.query(
-      `SELECT e.date , COUNT(*) 
+      `SELECT e.id, e.date , COUNT(*) 
       FROM "event" e
       INNER JOIN "user_event" ue ON e.id = ue.event_id
-      GROUP BY date`, 
+      GROUP BY id`, 
       );
     
     return result.rows;
