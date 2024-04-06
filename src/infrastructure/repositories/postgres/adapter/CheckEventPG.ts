@@ -8,7 +8,6 @@ export class CheckEventPG implements CheckEventRepo{
       `SELECT * FROM event WHERE id = $1`, 
       [eventId]
       );
-    
     return result.rows;
   }
 }

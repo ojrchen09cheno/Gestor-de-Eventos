@@ -13,7 +13,7 @@ export class EditEventApp implements IEditEvent {
       if(!(typeof(eventId) == "number")){
         return new ResponseApi(200, false, "Evento invalido", data);
       }
-      //
+      
       if(!data){
         return new ResponseApi(200, false, "Datos para actualizar invalidos", data);
       }

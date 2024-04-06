@@ -13,34 +13,31 @@ export const assistEvent = async (req: Request, res: Response) => {
   const response = await assistEventD.assistEvent(data);
   res.json(response);
 };
+
 /**
- *  Post track
  *  @swagger
- *  /eventos/{eventId}:
- *   post:
- *    tags:
- *     - Event
- *    summary: "Un usuario asiste a un evento"
- *    parameters: 
- *     - name: eventId
- *       in: path
- *       required: true
- *       schema:
- *        type: integer
- *     - name: token
- *       in: cookie
- *       required: true
- *       schema:
- *        type: string
- *    respones:
- *     200:
- *      description: Muestra todos los eventos.
- *      content:
- *       application/json:
- *        schema:
- *         type: object
- *     500:
- *      description: Error del servidor.
- *    security:
- *     - jwt
+ *  /eventos/asistir/{eventId}:
+ *    get:
+ *      tags:
+ *        - Event
+ *      summary: Un usuario asiste a un evento
+ *      description: Endpoint para asistir a eventos
+ *      parameters: 
+ *        - in: path
+ *          name: eventId
+ *        - in: cookie
+ *          name: token
+ *          schema:
+ *            type: string
+ *      respones:
+ *        200:
+ *          description: Asistiendo a evento
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *        500:
+ *          description: Error del servidor.
+ *      security:
+ *        - jwt
  */
