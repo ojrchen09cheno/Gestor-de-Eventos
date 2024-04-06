@@ -7,7 +7,7 @@ describe("Test de login", () => {
     const dataMock = [{
       username: "test",
       password: bcrypt.hashSync("test", 10),
-    }]
+    }];
     const data = {
       username: "test",
       password: "test"

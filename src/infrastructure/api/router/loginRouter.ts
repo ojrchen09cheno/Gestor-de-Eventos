@@ -2,7 +2,7 @@ import { loginD } from "../dependencies";
 import { CookieOptions, Request, Response } from "express";
 
 export const login = async (req: Request, res: Response) => {
-  const response = await loginD.login(req.body);
+  const response:any = await loginD.login(req.body);
   delete req.body.password;
   // Duracion de la sesion poner en .env?
   let options: CookieOptions = {
