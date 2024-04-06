@@ -14,8 +14,6 @@ export class AssistCountApp implements IAssistCount {
       for(let i = 0; i < result.length; i++){
         const element: any = result[i];
         const date = element.date.toString()
-        console.log(map.get(date) || 0)
-        console.log(element.count)
         if(map.get(date)){
           const temp = map.get(date)
           map.set(date, temp + element.count)

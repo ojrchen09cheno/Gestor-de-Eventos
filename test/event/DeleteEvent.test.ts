@@ -1,16 +1,16 @@
 import { DeleteEventApp } from "@application/services/event/deleteEventApp";
 
 describe("Tests para eliminar eventos", () => {
-  it("Deberia eliminar un emento si el eventId es valido", async () => {
+  it("Deberia eliminar un elemento si el eventId es valido", async () => {
     const data = {
       eventId: 0
     }
     const deleteEventRepo = {
-      deleteEvent: jest.fn().mockResolvedValue(true),
+      deleteEvent: jest.fn().mockResolvedValue(['true']),
     }
     const deleteEventTest = new DeleteEventApp(deleteEventRepo);
 
-    const result = await deleteEventTest.deleteEvent(data);
+    const result = await deleteEventTest.deleteEvent(data.eventId);
 
     expect(result.success).toBe(true);
     expect(deleteEventRepo.deleteEvent).toHaveBeenCalledWith(data.eventId);
@@ -25,7 +25,8 @@ describe("Tests para eliminar eventos", () => {
     }
     const deleteEventTest = new DeleteEventApp(deleteEventRepo);
 
-    const result = await deleteEventTest.deleteEvent(data);
+    //@ts-ignore
+    const result = await deleteEventTest.deleteEvent(data.eventId);
 
     expect((result).message).toBe("Evento invalido");
   })
@@ -39,7 +40,7 @@ describe("Tests para eliminar eventos", () => {
     }
     const deleteEventTest = new DeleteEventApp(deleteEventRepo);
 
-    const result = await deleteEventTest.deleteEvent(data);
+    const result = await deleteEventTest.deleteEvent(data.eventId);
 
     expect((result).message).toBe("El evento no existe");
   })

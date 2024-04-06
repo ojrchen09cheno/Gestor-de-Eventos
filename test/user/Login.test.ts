@@ -1,12 +1,13 @@
 import { LoginApp } from '@application/services/user/loginApp'
 import bcrypt from 'bcryptjs'
+import { error } from 'console'
 
 describe("Test de login", () => {
   it("Deberia hacer login si el usuario existe y dar token JSON", async () => {
-    const dataMock = {
+    const dataMock = [{
       username: "test",
       password: bcrypt.hashSync("test", 10),
-    }
+    }]
     const data = {
       username: "test",
       password: "test"
@@ -18,6 +19,7 @@ describe("Test de login", () => {
     const result = await loginTest.login(data);
     const hasPass = "password" in result.data;
 
+    error(result)
     expect(result.success).toEqual(true);
     expect(result.data).toHaveProperty('token');
     expect(hasPass).toEqual(false);
@@ -97,7 +99,7 @@ describe("Test de login", () => {
 
 jest.mock('@config/config', () => ({
   config: {
-    SECRET: 'test',
+    SECRET: "test",
     TOKEN_EXPIRE: '48h'
   }
 }))

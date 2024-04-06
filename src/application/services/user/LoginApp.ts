@@ -9,7 +9,7 @@ import { User } from "../../../domain/entities";
 export class LoginApp implements ILogin {
   constructor(private loginRepo: LoginRepo) {}
 
-  async login(user: any): Promise<any> {
+  async login(user: any): Promise<ResponseApi> {
     try {
       
       if (!user.username || !user.password) {

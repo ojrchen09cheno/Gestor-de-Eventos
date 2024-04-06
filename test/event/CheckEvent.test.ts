@@ -6,7 +6,7 @@ describe("Tests para servicio de mirar 1 evento", () => {
       eventId: 0,
     }
     const checkEventRepo = {
-      checkEvent: jest.fn().mockResolvedValue(true),
+      checkEvent: jest.fn().mockResolvedValue(['true']),
     }
     const checkEventTest = new CheckEventApp(checkEventRepo);
 

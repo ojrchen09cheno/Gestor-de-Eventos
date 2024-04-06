@@ -25,7 +25,8 @@ describe("Test para registro de usuario", () => {
   it("Deberia de dar un error si el usuario ya existe", async () => {
     const data = {
       username: "gooduser",
-      password: "goodpass"
+      password: "goodpass",
+      name: "test"
     };
     const registerAppRepo = {
       findByUsername: jest.fn().mockResolvedValue("someuser"),
@@ -56,7 +57,7 @@ describe("Test para registro de usuario", () => {
 
     expect(result.success).toBe(false);
     expect(hassPass).toBe(false);
-    expect(result.message).toBe("El usuario o la contraseña estan vacios");
+    expect(result.message).toBe("Usuario, contraseña, o nombre vacios");
   })
 
   it("Deberia de dar un error si la contrasena esta vacia", async () => {
@@ -74,6 +75,6 @@ describe("Test para registro de usuario", () => {
 
     expect(result.success).toBe(false);
     expect(hassPass).toBe(false);
-    expect(result.message).toBe("El usuario o la contraseña estan vacios");
+    expect(result.message).toBe("Usuario, contraseña, o nombre vacios");
   })
 })

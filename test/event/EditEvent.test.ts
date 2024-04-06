@@ -15,7 +15,7 @@ describe("Tests para editar eventos", () => {
     }
     const editEventTest = new EditEventApp(editEventRepo);
 
-    const result = editEventTest.editEvent(data);
+    const result = editEventTest.editEvent(data.eventId, data.updateEvent);
 
     expect((await result).success).toBe(true);
     expect(editEventRepo.editEvent).toHaveBeenCalledWith(data.eventId, data.updateEvent);
@@ -33,7 +33,8 @@ describe("Tests para editar eventos", () => {
     }
     const editEventTest = new EditEventApp(editEventRepo);
 
-    const result = await editEventTest.editEvent(data);
+    //@ts-ignore
+    const result = await editEventTest.editEvent(data.eventId, data.updateEvent);
 
     expect(result.message).toBe("Evento invalido");
   })
@@ -47,7 +48,7 @@ describe("Tests para editar eventos", () => {
     }
     const editEventTest = new EditEventApp(editEventRepo);
 
-    const result = await editEventTest.editEvent(data);
+    const result = await editEventTest.editEvent(data.eventId, null);
 
     expect(result.message).toBe("Datos para actualizar invalidos");
   })
