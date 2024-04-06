@@ -9,7 +9,7 @@ Características principales:
 - Autenticación con JWT
 - Documentación con Swagger
 - Implementación de lugares cercanos a eventos con API Mapbox/Google Maps
-- Inserción y actualización de eventos subiendo archivos csv delimitados por coma con el siguiente formato
+- Inserción y actualización de eventos subiendo archivos csv delimitados por coma con el siguiente encabezado y formato
 ```
 name,address,latitude,longitude,date,country,city,description
 string,string,decimal,decimal,YYYY-mm-dd,string,string,string
