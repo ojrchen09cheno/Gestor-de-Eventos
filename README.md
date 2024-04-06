@@ -22,7 +22,7 @@ git clone https://github.com/ojrchen09cheno/PruebaCoordinadoraBackend
 - Instalar las dependencias dentro del proyecto con npm i
 - Crear archivo .env para las variables de entorno y agregar las siguientes:
 ```
-PORT = puertoapp
+PORT = 8000
 DB_USER = usuariobd
 DB_HOST = hostbd
 DB_PASSWORD = contrasenabd
