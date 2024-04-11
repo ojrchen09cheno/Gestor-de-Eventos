@@ -1,6 +1,18 @@
 import { AssistEventApp } from "@application/services/event/assistEventApp";
 
 describe("Tests para servicio de asistir a eventos", () => {
+
+  let assistEventRepo: any;
+  let assistEventTest: any;
+
+  beforeAll(() => {
+    assistEventRepo = {
+      assistEvent: jest.fn().mockResolvedValue(true),
+    }
+    
+    assistEventTest = new AssistEventApp(assistEventRepo);
+  })
+
   it("Deberia ser exitoso si se dan un usuario y evento valido", async () => {
     const data = {
       userId: 0,
@@ -35,9 +47,3 @@ describe("Tests para servicio de asistir a eventos", () => {
     expect(result.success).toBe(false);
   })
 })
-
-const assistEventRepo = {
-  assistEvent: jest.fn().mockResolvedValue(true),
-}
-
-const assistEventTest = new AssistEventApp(assistEventRepo);

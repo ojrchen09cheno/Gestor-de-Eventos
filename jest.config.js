@@ -1,8 +1,8 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  rootDir: "./",
+  preset: "ts-jest",
+  testEnvironment: "node",
+  rootDir: "",
   roots: [
     "<rootDir>",
   ],
@@ -12,10 +12,11 @@ const config = {
   ],
   moduleDirectories: [
     "node_modules",
-    '<rootDir>'
+    "src",
   ],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
   moduleNameMapper: {
     '@application/(.*)': '<rootDir>/src/application/$1',

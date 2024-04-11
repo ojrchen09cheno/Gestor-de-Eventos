@@ -6,27 +6,37 @@ export const createEvent = async (req: Request, res: Response) => {
   res.json(response)
 }
 
-/**     
- *  @swagger
- *  /eventos:
- *    post:
- *      tags:
- *        - Event
- *      summary: "Crear un evento"
- *      requestBody:
- *        content:
- *          application/json:
- *            schema:
- *              $ref: "#components/schemas/event"
- *      respones:
- *        '201':
- *          description: OK
- *          content:
- *            application/json:
- *              schema:
- *                $ref: "#/components/schemas/responseApi"
- *        '500':
- *          description: Error del servidor.
- *      security:
- *        - jwt
- */ 
+export const createEventDoc = {
+  tags: ["Event"],
+  summary: "API para crear eventos",
+  security: [
+    {
+      jwt: [],
+    },
+  ],
+  requestBody: {
+    description: "Datos del evento a crear",
+    content: {
+      "application/json": {
+        schema: {
+          $ref: "#components/schemas/event"
+        }
+      }
+    },
+  },
+  responses: {
+    '201': {
+      description: "Creacion de evento exitosa",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/responseApi"
+          }
+        }
+      }
+    },
+    '500': {
+      $ref: "#/components/responses/500"
+    }
+  }
+}

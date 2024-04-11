@@ -1,4 +1,5 @@
 import swaggerJSDoc, { OAS3Definition, OAS3Options } from "swagger-jsdoc";
+import * as docs from '../infrastructure/api/router/index'
 
 const swaggerDefinition: OAS3Definition = {
   openapi: "3.0.3",
@@ -11,12 +12,60 @@ const swaggerDefinition: OAS3Definition = {
       url: "http://localhost:8000",
     },
   ],
+  paths: {
+    "/login": {
+      "post": docs.loginDoc
+    },
+    "/register": {
+      "post": docs.registerDoc
+    },
+    "/eventos": {
+      "get": docs.getAllEventsDoc,
+      "post": docs.createEventDoc
+    },
+    "/eventos/{eventId}": {
+      "get": docs.checkEventDoc,
+      "put": docs.editEventDoc,
+      "delete": docs.deleteEventDoc,
+    },
+    "/eventos/asistir/{eventId}": {
+      "post": docs.assistEventDoc
+    },
+    "/eventos/dejar/{eventId}": {
+      "delete": docs.leaveEventDoc
+    },
+    "/eventos/asistencia": {
+      "get": docs.assistCountDoc
+    },
+    "/eventos/upload": {
+      "post": docs.uploadEventsDoc
+    },
+  },
   components: {
     securitySchemes: {
       jwt: {
-        type: "http",
-        scheme: "bearer",
-        bearerFormat: "JWT",
+        type: "apiKey",
+        in:"cookie",
+        name: "token",
+      },
+    },
+    parameters: {
+      token:{
+        description: "Este parametro se registra automaticamente al ingresar a la cuenta",
+        name: "token",
+        in: "cookie",
+        required: false,
+        schema: {
+          type: "string",
+        },
+      },
+      eventId:{
+        name: "eventId",
+        in: "path",
+        required: true,
+        schema: {
+          type: "integer",
+        },
       },
     },
     schemas: {
@@ -94,9 +143,31 @@ const swaggerDefinition: OAS3Definition = {
           },
           data: {
             type: "object",
-            additionalProperties: true
+            additionalProperties:true,
           },
         },
+      },
+    },
+    responses:{
+      500: {
+        description: "Error interno del servidor",
+        content: {
+          "application/json": {
+            schema: {
+              $ref: "#/components/schemas/responseApi"
+            }
+          }
+        }
+      },
+      401: {
+        description: "Acceso denegado",
+        content: {
+          "application/json": {
+            schema: {
+              $ref: "#/components/schemas/responseApi"
+            }
+          }
+        }
       },
     },
   },
@@ -105,6 +176,17 @@ const swaggerDefinition: OAS3Definition = {
 const swaggerOptions: OAS3Options = {
   swaggerDefinition,
   apis: ["./src/infrastructure/api/router/*.ts"],
+  // authAction: {
+  //   jwt: {
+  //     name: "JWT",
+  //     schema: {
+  //       type: "apiKey",
+  //       in: "cookie",
+  //       name: "token",
+  //     },
+  //     value: "Bearer <JWT>",
+  //   }
+  // }
 };
 
 export default swaggerJSDoc(swaggerOptions);

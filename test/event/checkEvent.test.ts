@@ -44,5 +44,6 @@ describe("Tests para servicio de mirar 1 evento", () => {
     const result = await checkEventTest.checkEvent(data.eventId);
 
     expect(result.message).toBe("Evento no encontrado");
+    
   })
 })

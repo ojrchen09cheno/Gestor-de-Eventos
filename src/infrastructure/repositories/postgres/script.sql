@@ -26,8 +26,8 @@ CREATE TABLE public."user_event" (
 	user_id int NOT NULL,
 	event_id int NOT NULL,
 	CONSTRAINT assistant_pk PRIMARY KEY (user_id,event_id),
-	CONSTRAINT assistant_user_fk FOREIGN KEY (user_id) REFERENCES public."users"(id) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT assistant_event_fk FOREIGN KEY (event_id) REFERENCES public."event"(id) ON DELETE SET NULL ON UPDATE CASCADE
+	CONSTRAINT assistant_user_fk FOREIGN KEY (user_id) REFERENCES public."users"(id) ON DELETE SET CASCADE ON UPDATE CASCADE,
+	CONSTRAINT assistant_event_fk FOREIGN KEY (event_id) REFERENCES public."event"(id) ON DELETE SET CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO "users"  (username, password, name) VALUES ('user1', 'pass', 'Santiago');

@@ -12,7 +12,7 @@ router
   .post("/eventos", auth, routes.createEvent)
   .post("/eventos/upload", auth, upload.single('file'), routes.uploadEvents)
   .put("/eventos/:eventId", auth, routes.editEvent)
-  .get("/eventos/asistir/:eventId", auth, routes.assistEvent)
+  .post("/eventos/asistir/:eventId", auth, routes.assistEvent)
   .delete("/eventos/dejar/:eventId", auth, routes.leaveEvent)
   // Rol admin y auth admin?
   .delete("/eventos/:eventId", auth, routes.deleteEvent)

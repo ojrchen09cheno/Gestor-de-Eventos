@@ -13,3 +13,32 @@ export const leaveEvent = async (req: Request, res: Response) => {
   const response = await leaveEventD.leaveEvent(data);
   res.json(response);
 };
+
+export const leaveEventDoc = {
+  tags: ["Event"],
+  summary: "API para que un usuario deje de asistir a un evento",
+  security: [
+    {
+      jwt: [],
+    },
+  ],
+  parameters:[
+    {$ref: "#/components/parameters/token"},
+    {$ref: "#/components/parameters/eventId"}
+  ],
+  responses: {
+    '201': {
+      description: "Usuario dejo de asistir al evento exitosamente",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/responseApi"
+          }
+        }
+      }
+    },
+    '500': {
+      $ref: "#/components/responses/500"
+    }
+  }
+}

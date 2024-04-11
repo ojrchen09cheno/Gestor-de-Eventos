@@ -14,3 +14,49 @@ export const login = async (req: Request, res: Response) => {
   res.cookie("token", response.data.token, options);
   res.json(response)
 }
+
+export const loginDoc = {
+  tags: ["User"],
+  summary: "API para ingresar a una cuenta",
+  security: [
+    {
+      jwt: [],
+    },
+  ],
+  requestBody: {
+    description: "Datos del usuario para ingreso",
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          required: ["username", "password"],
+          properties: {
+            username: {
+              type: "string",
+              example: "user123",
+            },
+            password: {
+              type: "string",
+              example: "password123",
+            },
+          },
+        }
+      }
+    },
+  },
+  responses: {
+    '201': {
+      description: "Ingreso exitoso",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/responseApi"
+          }
+        }
+      }
+    },
+    '401': {
+      $ref: "#/components/responses/500"
+    }
+  }
+}

@@ -14,30 +14,31 @@ export const assistEvent = async (req: Request, res: Response) => {
   res.json(response);
 };
 
-/**
- *  @swagger
- *  /eventos/asistir/{eventId}:
- *    get:
- *      tags:
- *        - Event
- *      summary: Un usuario asiste a un evento
- *      description: Endpoint para asistir a eventos
- *      parameters: 
- *        - in: path
- *          name: eventId
- *        - in: cookie
- *          name: token
- *          schema:
- *            type: string
- *      respones:
- *        200:
- *          description: Asistiendo a evento
- *          content:
- *            application/json:
- *              schema:
- *                type: object
- *        500:
- *          description: Error del servidor.
- *      security:
- *        - jwt
- */
+export const assistEventDoc = {
+  tags: ["Event"],
+  summary: "API para que el usuario asista a un evento",
+  security: [
+    {
+      jwt: [],
+    },
+  ],
+  parameters:[
+    {$ref: "#/components/parameters/token"},
+    {$ref: "#/components/parameters/eventId"}
+  ],
+  responses: {
+    '201': {
+      description: "Usuario asisitiendo a evento exitosamente",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/responseApi"
+          }
+        }
+      }
+    },
+    '500': {
+      $ref: "#/components/responses/500"
+    }
+  }
+}

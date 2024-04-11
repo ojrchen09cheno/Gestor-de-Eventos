@@ -6,24 +6,22 @@ export const getAllEvents = async (req: Request, res: Response) => {
   res.json(response)
 }
 
-/**     
- *  @swagger
- *  /eventos:
- *    get:
- *      tags:
- *        - Event
- *      summary: Ver todos los eventos
- *      description: Este endpoint es para ver todos los eventos
- *      respones:
- *        '200':
- *          description: OK
- *          content:
- *            application/json:
- *              schema:
- *                type: object
- *                properties: 
- *                  type: string
- *                  example: OK
- *        '500':
- *          description: Error del servidor.
- */ 
+export const getAllEventsDoc = {
+  tags: ["Event"],
+  summary: "API para ver todos los eventos",
+  responses: {
+    '200': {
+      description: "Eventos encontrados",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/responseApi"
+          }
+        }
+      }
+    },
+    '500': {
+      $ref: "#/components/responses/500"
+    }
+  }
+}
