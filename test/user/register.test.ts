@@ -1,21 +1,23 @@
 import { RegisterApp } from "@application/services/user/registerApp";
+import { error } from 'console'
 
 describe("Test para registro de usuario", () => {
   it("Deberia crear un usuario si no existe", async () => {
 
     const data = {
       username: "gooduser",
-      password: "goodpass"
+      password: "goodpass",
+      name: "goodname"
     };
     const registerAppRepo = {
-      findByUsername: jest.fn(),
+      findByUsername: jest.fn().mockResolvedValue([]),
       register: jest.fn().mockResolvedValue(true)
     }
     const registerTest = new RegisterApp(registerAppRepo);
 
     const result = await registerTest.register(data);
     const hassPass = "password" in data;
-
+    error(result)
     expect(result.success).toBe(true);
     expect(registerAppRepo.findByUsername).toHaveBeenCalledWith(data.username);
     expect(registerAppRepo.register).toHaveBeenCalledWith(data);
