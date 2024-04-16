@@ -30,6 +30,10 @@ DB_PORT = puertobd
 TOKEN_EXPIRE = tiempodetoken
 SECRET = secreto
 ```
+- Generar la base de datos usando el script de SQL en:
+```
+src/infrastructure/repositories/postgres
+```
 - Ejecutar los tests con npm test
 - Ejecutar la app con npm run dev
 - Documentacion en http://localhost/8000/docs
